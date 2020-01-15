@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+
+%deklaracje pakietÃ³w
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{eucal}
+\usepackage{listings}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+%pakiety z jÄ™zykiem polskim
+\usepackage[polish]{babel}
+\usepackage[cp1250]{inputenc}
+\usepackage{t1enc}
+%ustawienia marginesÃ³w
+\textwidth=16cm \textheight=23cm \oddsidemargin=0.5cm
+\topmargin=-1cm
+
+\renewcommand\baselinestretch{1.1}
+
+%definicje wÅ‚asnych komend tworzymy nastepujÄ…co
+\DeclareMathOperator{\Q}{\mathbb{Q}} %symbol zbioru liczb wymiernych
+
+% albo tak \def\moja_komenda{\wlasciwa_dla_TeXa_komenda}
+
+\def\R{\mathbb{R}} % symbol zbioru liczb rzeczywistych
+
+
+\def\N{\mathbb{N}}
+\def\CC{\mathcal{C}} % kaligraficzne C
+\def\FF{\mathcal{F}} % kaligraficzne F
+\def\MM{\mathcal{M}} % kaligraficzne M
+\def\NN{\mathcal{N}} % kaligraficzne N
+
+% Å›rodowiska
+% w pierwszych nawiasach klamrowych sÄ… skrÃ³ty, ktorych uzywamy w komendach \begin i \end,
+% rozpoczynajacych i konczacych dane srodowisko
+\newtheorem{tw}{Twierdzenie}
+\newtheorem{lem}{Lemat}
+\newtheorem{wn}{Wniosek}
+\newtheorem{fakt}{Fakt}
+\newtheorem{uw}{Uwaga}
+\newtheorem{defin}{Definicja}
+\newtheorem{prz}{PrzykÅ‚ad}
+\newenvironment{dow}{\par \noindent \emph{DowÃ³d.\ }}{\par\noindent\hfill$\Box$}% Otwieramy po zamknieciu srodowiska Twierdzenie, Lemat,...
+
+
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\begin{center}
+\begin{Large}
+WPROWADZENIE DO SIECI NEURONOWYCH
+\end{Large}
+\end{center}
+
+\begin{center}
+{Sprawozdanie z laboratorium}
+\end{center}
+
+\begin{center}
+{Angelika Nadolska, Anna W¹sik, Kacper Wichowicz}
+\end{center}
+
+\section{Podstawowe informacje}
+
+\subsection{Wprowadzenie}
+
+G³ównym celem projektu jest zbudowanie modelu konwolucyjnej sieci neuronowej (CNN), klasyfikuj¹cego obrazy MRI na podstawie widocznoœci guza mózgu. Problem ten zosta³ ju¿ rozwi¹zany na platformie Kaggle. 
+
+\noindent Do wytrenowania modelu u¿yliœmy architektury VGG-16. Miar¹ trafnoœci modelu jest $accuracy$, któr¹ definiuje siê nastêpuj¹co:
+
+$$accuracy = \frac{C}{T} \cdot 100\%,$$
+\noindent gdzie $C$ oznacza liczbê poprawnie przewidzianych obrazów, a $T$ ca³kowit¹ liczbê testowanych obrazów. 
+
+W zwi¹zku z tym, ¿e nasz zbiór danych by³ bardzo ma³y, skorzystaliœmy z tzw. transfer learningu. Tak¿e wygenerowaliœmy wiêcej danych robi¹c ró¿ne transformacje na obrazkach. 
+
+\subsection{Konwolucyjne sieci neuronowe (CNN)}
+
+Niestety, gdy posiadamy zbyt du¿o danych wejœciowych istnieje mo¿liwoœæ, ¿e nasza g³êboka sieæ siê "przeuczy". Chodzi tutaj, o to, ¿eby sieæ faktycznie nauczy³a siê rozpoznawaæ wilki, a nie sytuacje, ¿e wystêpuj¹ one najczêœciej na jasnym, zimnym tle (poniewa¿ w takiej sytuacji sieæ rozpoznaje zimê, a nie wilki). Rozwi¹zaniem tego problemu wydaj¹ siê byæ konwolucyjne sieci neuronowe.
+
+Aby unikn¹æ przeuczania G³êbokich sieci neuronowych konwolucyjne sieci neuronowe badaj¹ wydzielon¹ czêœæ obrazu tak samo jak sieæ g³êboka, jednak skupiaj¹ siê na wybranej przez nas konkretnej charakterystycznej cesze, odrzucaj¹c rzeczy nas nie interesuj¹ce.  
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{Y1.jpg}
+    \caption{Obraz z nowotworem.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{23 no.jpg}
+    \caption{Obraz bez nowotworu.}
+  \end{subfigure}
+  \caption{Przyk³adowe dane.}
+  \label{fig}
+\end{figure}
+
+\subsection{Architektura VGG-16}
+
+
+\subsection{Transfer learning}
+
+
+
+\section{Przygotowywanie danych}
+
+Nasze dane s¹ ju¿ sklasyfikowane na obrazy z nowotworem i bez.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{Y1.jpg}
+    \caption{Obraz z nowotworem.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{23 no.jpg}
+    \caption{Obraz bez nowotworu.}
+  \end{subfigure}
+  \caption{Przyk³adowe dane.}
+  \label{fig}
+\end{figure}
+
+\subsection{Podzia³ na zbiory}
+
+Pozostaje nam podzieliæ je na zbiór testowy, treningowy i walidacyjny. Do tego, napisaliœmy program, który losowo wybiera po 5 obrazów do zbioru testowego, nastêpnie 80\% reszty losowo do zbioru treningowego, a to co zosta³o, przydziela do zbioru walidacyjnego.  
+
+
+\begin{lstlisting}[language=Python]
+import glob
+yes_dir = glob.glob('C:/git/obrazyMRI/data/brain_tumor_dataset/yes/*')
+no_dir =glob.glob('C:/git/obrazyMRI/data/brain_tumor_dataset/no/*')
+
+import os
+
+# define the name of the directory to be created
+path = ["C:/git/obrazyMRI/data/TEST/YES","C:/git/obrazyMRI/data/TEST/NO", "C:/git/obrazyMRI/data/TRAIN/YES",
+       "C:/git/obrazyMRI/data/TRAIN/NO", "C:/git/obrazyMRI/data/VAL/YES", "C:/git/obrazyMRI/data/VAL/NO"]
+for i in path:
+    try:
+        os.makedirs(i)
+    except OSError:
+        print ("Creation of the directory %s failed" % i)
+    else:
+        print ("Successfully created the directory %s" % i)
+
+from math import *
+import numpy as np
+import shutil
+
+yes_test=np.random.choice(yes_dir, size=5, replace=False)
+for i in yes_test:
+    shutil.copy(i, "C:/git/obrazyMRI/data/TEST/YES" )
+yes_dir=list(set(yes_dir)-set(yes_test))
+yes_train=np.random.choice(yes_dir, size=floor(0.8*len(yes_dir)), replace=False)
+for i in yes_train:
+    shutil.copy(i, "C:/git/obrazyMRI/data/TRAIN/YES" )
+yes_val=list(set(yes_dir)-set(yes_train))
+for i in yes_val:
+    shutil.copy(i, "C:/git/obrazyMRI/data/VAL/YES" )
+
+
+no_test=np.random.choice(no_dir, size=5, replace=False)
+for i in no_test:
+    shutil.copy(i, "C:/git/obrazyMRI/data/TEST/NO" )
+no_dir=list(set(no_dir)-set(no_test))
+no_train=np.random.choice(no_dir, size=floor(0.8*len(no_dir)), replace=False)
+for i in no_train:
+    shutil.copy(i, "C:/git/obrazyMRI/data/TRAIN/NO" )
+no_val=list(set(no_dir)-set(no_train))
+for i in no_val:
+    shutil.copy(i, "C:/git/obrazyMRI/data/VAL/NO" )
+\end{lstlisting}
+
+W skrócie - w linijkach 2-3 tworzymy dwie listy napisów, a dok³adniej œcie¿ek do ka¿dego pliku. W zmiennej `path` znajduj¹ siê œcie¿ki do katalogów, które chcemy stworzyæ. Pêtla, zaczynaj¹ca siê od 10-tej linijki tworzy nam foldery przy czym wypisuje, czy uda³o siê je stworzyæ, czy nie. W linijce 22-ej losujemy 5 obrazów, nastêpnie pêtl¹ wpisujemy je w folder. W linijce 25-tej odejmujemy obrazki ju¿ wylosowane. Reszta kodu jest analogiczna. 
+
+Oto przyk³adowe obrazu dla zbioru treningowego.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{tumor.png}
+  \caption{Bez nowotworu w zbiorze treningowym}
+  \label{fig}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{tumorY.png}
+  \caption{Z nowotworem w zbiorze treningowym}
+  \label{fig}
+\end{figure}
+
+\bigskip
+
+\subsection{Normalizacja obrazów}
+
+Widzimy, ¿e nasze zdjêcia mózgu s¹ robione z ró¿nej odleg³oœci. Spróbujemy je znormalizowaæ tak, aby widoczny by³ mózg z jak najmniejsz¹ iloœci¹ t³a. W tym celu znajdziemy minimum i maksimum mózgu w pionie i poziomie.
+
+Oto kod funkcji, która to zrobi:
+\begin{lstlisting}[language=Python]
+def crop_imgs(set_name, add_pixels_value=0):
+    """
+    Finds the extreme points on the image and crops the rectangular out of them
+    """
+    set_new = []
+    for img in set_name:
+        gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        gray = cv2.GaussianBlur(gray, (5, 5), 0)
+
+        # threshold the image, then perform a series of erosions +
+        # dilations to remove any small regions of noise
+        thresh = cv2.threshold(gray, 45, 255, cv2.THRESH_BINARY)[1]
+        thresh = cv2.erode(thresh, None, iterations=2)
+        thresh = cv2.dilate(thresh, None, iterations=2)
+
+        # find contours in thresholded image, then grab the largest one
+        cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        cnts = imutils.grab_contours(cnts)
+        c = max(cnts, key=cv2.contourArea)
+
+        # find the extreme points
+        extLeft = tuple(c[c[:, :, 0].argmin()][0])
+        extRight = tuple(c[c[:, :, 0].argmax()][0])
+        extTop = tuple(c[c[:, :, 1].argmin()][0])
+        extBot = tuple(c[c[:, :, 1].argmax()][0])
+
+        ADD_PIXELS = add_pixels_value
+        new_img = img[extTop[1]-ADD_PIXELS:extBot[1]+ADD_PIXELS, extLeft[0]-ADD_PIXELS:extRight[0]+ADD_PIXELS].copy()
+        set_new.append(new_img)
+
+    return np.array(set_new)
+\end{lstlisting}
+
+\noindent Nasze obrazy po wstêpnej normalizacji:
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{crop-tumor-no.png}
+  \caption{Bez nowotworu po normalizacji}
+  \label{fig}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{crop-tumor-yes.png}
+  \caption{Z nowotworem po normalizacji}
+  \label{fig}
+\end{figure}
+
+
+\noindent Obróbka danych jest ju¿ prawie skoñczona. Wystarczy jeszcze tylko ujednoliciæ rozmiar obrazów. Ujednoliciliœmy go do 224 na 224 pikseli.
+
+\section{Tworzenie modelu}
+
+
+
+
+\section{Wyniki}
+
+
+\section{Wnioski}
+\end{document}
