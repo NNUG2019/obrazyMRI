@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.13)  15 JAN 2020 08:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.13)  15 JAN 2020 10:41
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -257,6 +257,24 @@ LaTeX Warning: Label `fig' multiply defined.
 
 LaTeX Warning: Label `fig' multiply defined.
 
+
+LaTeX Warning: Label `fig' multiply defined.
+
+
+LaTeX Warning: Label `fig' multiply defined.
+
+
+LaTeX Warning: Label `fig' multiply defined.
+
+
+LaTeX Warning: Label `fig' multiply defined.
+
+
+LaTeX Warning: Label `fig' multiply defined.
+
+
+LaTeX Warning: Label `fig' multiply defined.
+
 )
 \openout1 = `sprawozdanie.aux'.
 
@@ -356,77 +374,141 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<Y1.jpg, id=1, 180.675pt x 218.8175pt>
-File: Y1.jpg Graphic file (type jpg)
-<use Y1.jpg>
-Package pdftex.def Info: Y1.jpg  used on input line 116.
-(pdftex.def)             Requested size: 91.04742pt x 110.2699pt.
-<23 no.jpg, id=2, 208.78pt x 242.9075pt>
-File: 23 no.jpg Graphic file (type jpg)
-<use 23 no.jpg>
-Package pdftex.def Info: 23 no.jpg  used on input line 120.
-(pdftex.def)             Requested size: 91.04742pt x 105.93076pt.
+<kafelki.png, id=1, 1015.795pt x 819.06pt>
+File: kafelki.png Graphic file (type png)
+<use kafelki.png>
+Package pdftex.def Info: kafelki.png  used on input line 116.
+(pdftex.def)             Requested size: 136.5746pt x 110.11841pt.
+<macierz2.png, id=3, 1059.96pt x 413.545pt>
+File: macierz2.png Graphic file (type png)
+<use macierz2.png>
+Package pdftex.def Info: macierz2.png  used on input line 120.
+(pdftex.def)             Requested size: 273.14922pt x 106.56631pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: Y1.jpg Graphic file (type jpg)
-<use Y1.jpg>
-Package pdftex.def Info: Y1.jpg  used on input line 141.
-(pdftex.def)             Requested size: 91.04742pt x 110.2699pt.
-File: 23 no.jpg Graphic file (type jpg)
-<use 23 no.jpg>
-Package pdftex.def Info: 23 no.jpg  used on input line 145.
-(pdftex.def)             Requested size: 91.04742pt x 105.93076pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
 {C:/Users/aniaw/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<vgg16.jpg, id=16, 648.17157pt x 381.67593pt>
+File: vgg16.jpg Graphic file (type jpg)
+<use vgg16.jpg>
+Package pdftex.def Info: vgg16.jpg  used on input line 136.
+(pdftex.def)             Requested size: 455.24408pt x 268.07404pt.
+<konwolucja i dekonwolucja.png, id=17, 1157.07281pt x 289.83281pt>
+File: konwolucja i dekonwolucja.png Graphic file (type png)
+<use konwolucja i dekonwolucja.png>
+Package pdftex.def Info: konwolucja i dekonwolucja.png  used on input line 142.
+
+(pdftex.def)             Requested size: 455.24408pt x 114.03381pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2 <./kafelki.png> <./macierz2.png> <./vgg16.jpg>]
+<transfer.png, id=24, 922.44624pt x 496.85625pt>
+File: transfer.png Graphic file (type png)
+<use transfer.png>
+Package pdftex.def Info: transfer.png  used on input line 154.
+(pdftex.def)             Requested size: 455.24408pt x 245.20541pt.
+<Y1.jpg, id=25, 180.675pt x 218.8175pt>
+File: Y1.jpg Graphic file (type jpg)
+<use Y1.jpg>
+Package pdftex.def Info: Y1.jpg  used on input line 168.
+(pdftex.def)             Requested size: 91.04742pt x 110.2699pt.
+<23 no.jpg, id=26, 208.78pt x 242.9075pt>
+File: 23 no.jpg Graphic file (type jpg)
+<use 23 no.jpg>
+Package pdftex.def Info: 23 no.jpg  used on input line 172.
+(pdftex.def)             Requested size: 91.04742pt x 105.93076pt.
+ [3 <./konwolucja i dekonwolucja.png> <./transfer.png (PNG copy)>]
 (C:\Users\aniaw\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-57.
+84.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [2 <./Y1.jpg> <./23 no.jpg>]
-<tumor.png, id=20, 857.2025pt x 388.45125pt>
+) [4 <./Y1.jpg> <./23 no.jpg>]
+<tumor.png, id=35, 857.2025pt x 388.45125pt>
 File: tumor.png Graphic file (type png)
 <use tumor.png>
-Package pdftex.def Info: tumor.png  used on input line 208.
+Package pdftex.def Info: tumor.png  used on input line 233.
 (pdftex.def)             Requested size: 455.24408pt x 206.29901pt.
-<tumorY.png, id=22, 857.2025pt x 387.4475pt>
+<tumorY.png, id=36, 857.2025pt x 387.4475pt>
 File: tumorY.png Graphic file (type png)
 <use tumorY.png>
-Package pdftex.def Info: tumorY.png  used on input line 214.
+Package pdftex.def Info: tumorY.png  used on input line 239.
 (pdftex.def)             Requested size: 455.24408pt x 205.76595pt.
- [3] [4 <./tumor.png> <./tumorY.png>]
-<crop-tumor-no.png, id=31, 857.2025pt x 388.45125pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./tumor.png>] [6 <./tumorY.png>]
+<crop-tumor-no.png, id=45, 857.2025pt x 388.45125pt>
 File: crop-tumor-no.png Graphic file (type png)
 <use crop-tumor-no.png>
-Package pdftex.def Info: crop-tumor-no.png  used on input line 263.
+Package pdftex.def Info: crop-tumor-no.png  used on input line 297.
 (pdftex.def)             Requested size: 455.24408pt x 206.29901pt.
-<crop-tumor-yes.png, id=32, 857.2025pt x 386.44376pt>
+<crop-tumor-yes.png, id=46, 857.2025pt x 386.44376pt>
 File: crop-tumor-yes.png Graphic file (type png)
 <use crop-tumor-yes.png>
-Package pdftex.def Info: crop-tumor-yes.png  used on input line 269.
+Package pdftex.def Info: crop-tumor-yes.png  used on input line 303.
 (pdftex.def)             Requested size: 455.24408pt x 205.23288pt.
- [5] [6 <./crop-tumor-no.png> <./crop-tumor-yes.png>] (sprawozdanie.aux)
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<orig.png, id=47, 203.76125pt x 251.94125pt>
+File: orig.png Graphic file (type png)
+<use orig.png>
+Package pdftex.def Info: orig.png  used on input line 316.
+(pdftex.def)             Requested size: 91.04742pt x 112.57674pt.
+<obracane.png, id=48, 837.1275pt x 388.45125pt>
+File: obracane.png Graphic file (type png)
+<use obracane.png>
+Package pdftex.def Info: obracane.png  used on input line 320.
+(pdftex.def)             Requested size: 364.19664pt x 168.9927pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./crop-tumor-no.png>]
+Overfull \vbox (0.98987pt too high) has occurred while \output is active []
+
+
+[8 <./crop-tumor-yes.png> <./orig.png> <./obracane.png>]
+<acurracy1.png, id=60, 1076.02pt x 353.32pt>
+File: acurracy1.png Graphic file (type png)
+<use acurracy1.png>
+Package pdftex.def Info: acurracy1.png  used on input line 366.
+(pdftex.def)             Requested size: 455.24408pt x 149.4824pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<accuracy2.png, id=61, 1076.02pt x 353.32pt>
+File: accuracy2.png Graphic file (type png)
+<use accuracy2.png>
+Package pdftex.def Info: accuracy2.png  used on input line 374.
+(pdftex.def)             Requested size: 455.24408pt x 149.4824pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9] [10 <./acurracy1.png> <./accuracy2.png>] (sprawozdanie.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6963 strings out of 492452
- 95774 string characters out of 3129807
- 484364 words of memory out of 3000000
- 11207 multiletter control sequences out of 15000+200000
+ 7049 strings out of 492452
+ 97093 string characters out of 3129807
+ 447483 words of memory out of 3000000
+ 11284 multiletter control sequences out of 15000+200000
  15379 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,8n,46p,473b,1821s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,8n,46p,483b,1817s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\aniaw\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ectt1000.pk> <C:\Users\aniaw\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm0600.pk> <C:\Users\aniaw\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -435,12 +517,13 @@ ec/dpi600\ecrm0600.pk> <C:\Users\aniaw\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 \2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\aniaw\AppData\Lo
 cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\aniaw\
 AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on sprawozdanie.pdf (6 pages, 1057429 bytes).
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on sprawozdanie.pdf (10 pages, 2526353 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
+ 375 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

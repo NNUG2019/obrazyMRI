@@ -95,7 +95,7 @@ WPROWADZENIE DO SIECI NEURONOWYCH
 
 \subsection{Wprowadzenie}
 
-G³ównym celem projektu jest zbudowanie modelu konwolucyjnej sieci neuronowej (CNN), klasyfikuj¹cego obrazy MRI na podstawie widocznoœci guza mózgu. Problem ten zosta³ ju¿ rozwi¹zany na platformie Kaggle. 
+G³ównym celem projektu jest zbudowanie modelu konwolucyjnej sieci neuronowej (CNN), klasyfikuj¹cego obrazy MRI na podstawie widocznoœci guza mózgu. Problem ten zosta³ ju¿ rozwi¹zany na platformie Kaggle. Dane s¹ dostêpne publicznie, wiele instytucji naukowych i badawczych udostêpnia takie dane. 
 
 \noindent Do wytrenowania modelu u¿yliœmy architektury VGG-16. Miar¹ trafnoœci modelu jest $accuracy$, któr¹ definiuje siê nastêpuj¹co:
 
@@ -108,28 +108,55 @@ W zwi¹zku z tym, ¿e nasz zbiór danych by³ bardzo ma³y, skorzystaliœmy z tzw. tra
 
 Niestety, gdy posiadamy zbyt du¿o danych wejœciowych istnieje mo¿liwoœæ, ¿e nasza g³êboka sieæ siê "przeuczy". Chodzi tutaj, o to, ¿eby sieæ faktycznie nauczy³a siê rozpoznawaæ wilki, a nie sytuacje, ¿e wystêpuj¹ one najczêœciej na jasnym, zimnym tle (poniewa¿ w takiej sytuacji sieæ rozpoznaje zimê, a nie wilki). Rozwi¹zaniem tego problemu wydaj¹ siê byæ konwolucyjne sieci neuronowe.
 
-Aby unikn¹æ przeuczania G³êbokich sieci neuronowych konwolucyjne sieci neuronowe badaj¹ wydzielon¹ czêœæ obrazu tak samo jak sieæ g³êboka, jednak skupiaj¹ siê na wybranej przez nas konkretnej charakterystycznej cesze, odrzucaj¹c rzeczy nas nie interesuj¹ce.  
+Aby unikn¹æ przeuczania g³êbokich sieci neuronowych konwolucyjne sieci neuronowe badaj¹ wydzielon¹ czêœæ obrazu tak samo jak sieæ g³êboka, jednak skupiaj¹ siê na konkretnej charakterystycznej cesze, odrzucaj¹c rzeczy nie interesuj¹ce.  
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}[b]{0.2\linewidth}
-    \includegraphics[width=\linewidth]{Y1.jpg}
-    \caption{Obraz z nowotworem.}
+  \begin{subfigure}[b]{0.3\linewidth}
+    \includegraphics[width=\linewidth]{kafelki.png}
+    \caption{ }
   \end{subfigure}
-  \begin{subfigure}[b]{0.2\linewidth}
-    \includegraphics[width=\linewidth]{23 no.jpg}
-    \caption{Obraz bez nowotworu.}
+  \begin{subfigure}[b]{0.6\linewidth}
+    \includegraphics[width=\linewidth]{macierz2.png}
+    \caption{ }
   \end{subfigure}
-  \caption{Przyk³adowe dane.}
+  \caption{Tworzenie macierzy i wybieranie interesuj¹cych wartoœci.}
   \label{fig}
 \end{figure}
 
+\noindent Istot¹ sieci konwolucyjnych jest praca z danymi w postaci obrazów. Swoj¹ nazwê zawdziêczaj¹ tym, ¿e wybieraj¹c fragmenty obrazu korzystaj¹ z dzia³ania splotu, który definiujemy nastêpuj¹co:
+
+$$ s(t)= \int x(a) w(t-a) da $$
+
 \subsection{Architektura VGG-16}
 
+U¿ywaliœmy architektury sieci VGG-16 g³ównie z tego powodu, ¿e cieszy siê dobrymi wynikami w zagadnieniach klasyfikacji obrazów. Jest nawet laureatem konkursu. Jej schematyczna architektura pokazana jest na poni¿szych obrazkach. 
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{vgg16.jpg}
+  \caption{Schemat architektury VGG-16}
+  \label{fig}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{konwolucja i dekonwolucja.png}
+  \caption{Przyk³adowy obraz przed konwolucj¹ wy³apuj¹c¹ krawêdzie, a nastêpnie odtworzony}
+  \label{fig}
+\end{figure}
+
+Dla przyk³adu mo¿na podaæ, ¿e pierwszy etap konwolucji mo¿e rozpoznawaæ ostre krawêdzie, w drugim etapie mo¿emy dodaæ rozpoznawanie dziobów na podstawie wiedzy o ostrych krawêdziach, trzecia warstwa konwolucyjna mo¿e ju¿ rozpoznaæ ca³ego ptaka, opieraj¹c siê na wiedzy o dziobie.
 
 \subsection{Transfer learning}
 
+\noindent Transfer learning polega na u¿yciu modelu, który zosta³ wytrenowany w jednej dziedzinie, do klasyfikacji w innej. Np. je¿eli umiemy jeŸdziæ na rolkach ³atwiej bêdzie nam siê nauczyæ jeŸdziæ na ³y¿wach. 
 
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{transfer.png}
+  \caption{Porównanie machine learnignu z transfer Learningiem.}
+  \label{fig}
+\end{figure}
+
+\noindent Naszym 'wiêkszym'  zbiorem danych w transfer learningu jest baza danych Imagenet, w której znajduj¹ siê zdjêcia, które s¹ zaprojektowane do u¿ycia w oprogramowaniach do rozpoznawania obiektów na zdjêciach. Mo¿emy wykorzystaæ wiele przyk³adowych zdjêæ z tej bazy do uczenia naszej sieci neuronowej.
 
 \section{Przygotowywanie danych}
 
@@ -200,23 +227,32 @@ for i in no_val:
     shutil.copy(i, "C:/git/obrazyMRI/data/VAL/NO" )
 \end{lstlisting}
 
-W skrócie - w linijkach 2-3 tworzymy dwie listy napisów, a dok³adniej œcie¿ek do ka¿dego pliku. W zmiennej `path` znajduj¹ siê œcie¿ki do katalogów, które chcemy stworzyæ. Pêtla, zaczynaj¹ca siê od 10-tej linijki tworzy nam foldery przy czym wypisuje, czy uda³o siê je stworzyæ, czy nie. W linijce 22-ej losujemy 5 obrazów, nastêpnie pêtl¹ wpisujemy je w folder. W linijce 25-tej odejmujemy obrazki ju¿ wylosowane. Reszta kodu jest analogiczna. 
+\noindent W skrócie - w linijkach 2-3 tworzymy dwie listy napisów, a dok³adniej œcie¿ek do ka¿dego pliku. W zmiennej `path` znajduj¹ siê œcie¿ki do katalogów, które chcemy stworzyæ. Pêtla, zaczynaj¹ca siê od 10-tej linijki tworzy nam foldery przy czym wypisuje, czy uda³o siê je stworzyæ, czy nie. W linijce 22-ej losujemy 5 obrazów, nastêpnie pêtl¹ wpisujemy je w folder. W linijce 25-tej odejmujemy obrazki ju¿ wylosowane. Reszta kodu jest analogiczna. 
 
-Oto przyk³adowe obrazu dla zbioru treningowego.
-
-\begin{figure}
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{tumor.png}
   \caption{Bez nowotworu w zbiorze treningowym}
   \label{fig}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{tumorY.png}
   \caption{Z nowotworem w zbiorze treningowym}
   \label{fig}
 \end{figure}
 
-\bigskip
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Normalizacja obrazów}
 
@@ -257,15 +293,13 @@ def crop_imgs(set_name, add_pixels_value=0):
     return np.array(set_new)
 \end{lstlisting}
 
-\noindent Nasze obrazy po wstêpnej normalizacji:
-
-\begin{figure}
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{crop-tumor-no.png}
   \caption{Bez nowotworu po normalizacji}
   \label{fig}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{crop-tumor-yes.png}
   \caption{Z nowotworem po normalizacji}
   \label{fig}
@@ -274,13 +308,79 @@ def crop_imgs(set_name, add_pixels_value=0):
 
 \noindent Obróbka danych jest ju¿ prawie skoñczona. Wystarczy jeszcze tylko ujednoliciæ rozmiar obrazów. Ujednoliciliœmy go do 224 na 224 pikseli.
 
+\noindent W zwi¹zku z tym, ¿e nasza baza danych jest bardzo ograniczona, powiêkszymy j¹ przerabiaj¹c obrazy, tak aby wci¹¿ by³o widoczne gdzie jest nowotwór, a gdzie go nie ma. 
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{orig.png}
+    \caption{Originalny obraz}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.8\linewidth}
+    \includegraphics[width=\linewidth]{obracane.png}
+  \end{subfigure}
+  \caption{Oraz 21 jego transformacji.}
+  \label{fig}
+\end{figure}
+
+
+\newpage
+
 \section{Tworzenie modelu}
 
+Tworzymy model bazowy architektury VGG-16, gdzie wagi s¹ dostosowane z baz¹ danych imagenet. 
+\begin{lstlisting}[language=Python]
+base_model = VGG16(weights='imagenet', input_shape=IMG_SIZE + (3,), include_top=False)
+\end{lstlisting}
 
+Nastêpnie uzupe³niamy model o warstwy flatten, dropout. Funkcj¹ aktywacji jest oczywiœcie jakaœ funkcja sigmoidalna, funkcj¹ kosztu jest binary crossentropy, która jest u¿ywana przy problemach typu tak/nie (problemy binarne). Nasz problem oczywiœcie jest takim problemem, poniewa¿ musimy ka¿de zdjêcie zaklasyfikowaæ do pewnej kategorii („jest nowotwór” vs „nie ma nowotworu”).
+Funkcja binary crossentropy mierzy jak daleko od rzeczywistej wartoœci (która jest albo 0, albo 1), jest nasza predykcja dla ka¿dej z klas, a nastêpnie uœrednia b³êdy, aby obliczyæ koñcow¹ stratê.
+ 
+\begin{lstlisting}[language=Python]
+NUM_CLASSES = 1
 
+model = Sequential()
+model.add(base_model)
+model.add(layers.Flatten())
+model.add(layers.Dropout(0.5))
+model.add(layers.Dense(NUM_CLASSES, activation='sigmoid'))
+
+model.layers[0].trainable = False
+
+model.compile(
+    loss='binary_crossentropy',
+    optimizer=RMSprop(lr=1e-4),
+    metrics=['accuracy']
+)
+
+model.summary()
+\end{lstlisting}
+
+\noindent Po oko³o 7 godzinach nasza sieæ zakoñczy³a proces uczenia siê.  
 
 \section{Wyniki}
 
+Trafnoœæ w zbiorze walidacyjnym pocz¹tkowo wynosi³a 82\% oraz 90\% dla zbioru testowego. Jest to ca³kiem dobry wynik, natomiast dziwnym wydaje siê byæ fakt, ¿e w zbiorze testowym nie sklasyfikowa³a jednego obrazu. 
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{acurracy1.png}
+  \caption{Wzrost trafnoœci dla zbioru treningowego oraz walidacyjnego}
+  \label{fig}
+\end{figure}
+
+\noindent £udz¹c siê, ¿e byæ mo¿e douczanie sieci pomo¿e w klasyfikacji tego obrazka, który nie zosta³ sklasyfikowany, postanowiliœmy podj¹æ to wyzwanie. Proces douczania okaza³ siê byæ nic wznosz¹cy do poprawnoœci modelu (ewentualnie trafnoœæ na zbiorze walidacyjnym wzros³a do 90\%), sieæ wci¹¿ nie klasyfikowa³a tego obrazka.  
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{accuracy2.png}
+  \caption{Wartoœæ trafnoœci oraz funkcji kosztu dla zbioru treningowego oraz walidacyjnego po douczeniu sieci}
+  \label{fig}
+\end{figure}
+
+\newpage
 
 \section{Wnioski}
+
+Douczenie sieci za bardzo nic nie da³o. Ewentualnie jako sukces mo¿na uznaæ wzrost trafnoœci o 4\% dla zbioru walidacyjnego, jednak jak widaæ z powy¿szych wykresów zbiór walidacyjny mia³ niemal¿e przez ca³y czas mniejsz¹ trafnoœæ ni¿ zbiór treningowy. Ogólnie mo¿emy uznaæ, ¿e model ma zadawalaj¹ce wyniki, jednak dziwne jest dlaczego nie sklasyfikowa³ jednego obrazka w zbiorze testowym.
+
+W æwiczeniu najbardziej pracoch³onne, oczywiœcie, by³o przygotowanie danych. Okaza³o siê te¿, ¿e sama instalacja pakietów by³a lekkim wyzwaweniem.
 \end{document}
